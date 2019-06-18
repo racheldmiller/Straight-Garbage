@@ -1,0 +1,1 @@
+-- creates database, uses database, sets up table to accept values
