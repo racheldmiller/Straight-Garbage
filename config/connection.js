@@ -15,10 +15,10 @@ let connection = mysql.createConnection({
 // Make the connection
 connection.connect(function(err) {
   if (err) {
-    console.error("error connecting: " + err.stack);
+    console.error("Uh-oh, error connecting: " + err.stack);
     return;
   }
-  console.log("conneected as id " + connection.threadId);
+  console.log("You're conneected as id " + connection.threadId);
 });
 
 // Export connection for our ORM to use.
