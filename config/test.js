@@ -3,7 +3,7 @@
 var queryURL =
   "http://api.earth911.com/" +
   +"earth911.getMaterials?api_key=" +
-  "6ee9222b20473f36";
+  "EARTH911";
 
 // make the AJAX call
 $.ajax({
