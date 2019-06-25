@@ -28,6 +28,14 @@ router.get('/landing', function (req, res) {
     })
 })
 
+//***** Landing Page *******//
+router.get('/results', function (req, res) {
+    res.render('results', {
+        title: "Results",
+        style: "style.css"
+    })
+});
+
 router.post('/results', function(req, res) {
     //grabs the submit button and pushes user input to generate results
 })
