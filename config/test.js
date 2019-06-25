@@ -3,14 +3,14 @@
 var axios = require("axios");
 
 axios
-  .get("http://api.earth911.com/earth911.getMaterials?api_key=6ee9222b20473f36")
+  .get("http://api.earth911.com/earth911.getMaterials?api_key=EARTH911")
   .then(function(response) {
     console.log(response.data.result[0]);
   });
 
 axios
   .get(
-    "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCMTmEzVKPWnYwOd0XQuF5whyAZQ3JlZG8"
+    "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=GOOGLE"
   )
   .then(function(response) {
     console.log("************");
