@@ -17,10 +17,22 @@ var garbage = require("../models/garbage.js");
 //  ROUTES
 // ===================================
 
-router.get('/', function (req, res) {
+//***** Landing Page *******//
+
+router.get('/landing', function (req, res) {
     //res.JSON like console.log to display a message to the screen that the page works
-    res.json("Route for / works")
+    // res.json("Route for / works")
+    res.render('index', {
+        title: "Landing",
+        style: "style.css"
+    })
 })
+
+router.post('/results', function(req, res) {
+    //grabs the submit button and pushes user input to generate results
+})
+
+
 
 
 

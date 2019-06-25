@@ -28,7 +28,7 @@ app.use(express.static('public'))
 // Import routes
 var routes = require("./controllers/garbageControllers.js");
 // give the server access to routes
-app.use(routes);
+app.use('/', routes);
 
 // ===================================
 //  LISTENERS
