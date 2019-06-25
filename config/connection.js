@@ -9,7 +9,6 @@ let connection = mysql.createConnection({
   user: "root",
   password: "password",
   database: "recycleThis_db"
-  // ** this is a temporary database name **
 });
 
 // Make the connection
