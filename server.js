@@ -1,6 +1,7 @@
 // ===================================
 //  DEPENDENCIES & CONFIGS
 // ===================================
+require('dotenv').config();
 
 var express = require("express");
 
@@ -10,6 +11,11 @@ var app = express();
 
 var exphbs = require("express-handlebars");
 
+app.use((req, res, next) => 
+{
+    console.log('URL:', req.url)
+    next();
+})
 // Parse app body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
@@ -28,7 +34,7 @@ app.use(express.static('public'))
 // Import routes
 var routes = require("./controllers/garbageControllers.js");
 // give the server access to routes
-app.use('/', routes);
+app.use(routes);
 
 // ===================================
 //  LISTENERS
