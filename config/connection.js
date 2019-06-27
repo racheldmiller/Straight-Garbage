@@ -5,21 +5,20 @@ const mysql = require("mysql");
 
 let connection = mysql.createConnection({
   host: "localhost",
-  port: 8080,
+  port: 3306,
   user: "root",
   password: "password",
   database: "recycleThis_db"
-  // ** this is a temporary database name **
 });
 
 // Make the connection
-connection.connect(function(err) {
-  if (err) {
-    console.error("Uh-oh, error connecting: " + err.stack);
-    return;
-  }
-  console.log("You're connected as id " + connection.threadId);
-});
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error("error connecting: " + err.stack);
+//     return;
+//   }
+//   console.log("You're connected as id " + connection.threadId);
+// });
 
 // Export connection for our ORM to use.
 module.exports = connection;
