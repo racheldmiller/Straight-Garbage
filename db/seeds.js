@@ -21,7 +21,7 @@ connection.connect(function(err) {
         process.env.EARTH911
     )
     .then(function(response) {
-      console.log(response.data.result[0]);
+      console.log(response.data);
       //   console.log("description :", response.data.result[0].long_description);
       //   console.log("image :", response.data.result.image);
       //   console.log("materialID :", response.data.result.material_id);
@@ -29,9 +29,9 @@ connection.connect(function(err) {
 
   // create a for loop to loop through each of the results
   // store the results into the database
-  for (i = 0; i < response.length; i++) {
-    var response = response.length;
-  }
+  // for (i = 0; i < response.length; i++) {
+  //   var response = response.length;
+  // }
 
   // type----description
   // description---- long description
