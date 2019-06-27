@@ -41,6 +41,14 @@ connection.connect(function(err) {
     return;
   }
   console.log("You're connected as id " + connection.threadId);
+<<<<<<< HEAD
+=======
+
+  app.listen(PORT, function() {
+    console.log("Your app is connected to http://localhost:", PORT);
+  });
+});
+>>>>>>> 392201577eaa76520b762b907b5d230e05e2bdfa
 
   app.listen(PORT, function() {
     console.log("Your app is connected to http://localhost:", PORT);

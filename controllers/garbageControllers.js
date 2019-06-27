@@ -19,26 +19,27 @@ var garbage = require("../models/garbage.js");
 
 //***** Landing Page *******//
 
-router.get('/landing', function (req, res) {
+router.get('/', function (req, res) {
     //res.JSON like console.log to display a message to the screen that the page works
     // res.json("Route for / works")
+    // console.log('Helloooooo')
     res.render('index', {
         title: "Landing",
-        style: "style.css"
+        style: "style.css",
+        typesOfGarabage: [],
     })
 })
 
 //***** Landing Page *******//
 router.get('/results', function (req, res) {
+    console.log(req.query);
     res.render('results', {
         title: "Results",
         style: "style.css"
     })
+    //API
 });
 
-router.post('/results', function(req, res) {
-    //grabs the submit button and pushes user input to generate results
-})
 
 
 
