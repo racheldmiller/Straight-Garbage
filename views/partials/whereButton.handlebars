@@ -1,4 +1,5 @@
-<form action ="/results" method="GET">
-    <input type="text" name="postalCode">
+<form action ="/results/postalCode" method="POST">
+    {{!-- name is handlebars param value --}}
+    <input type="text" name="postalCode"> 
     <button type="submit">Search near me!</button>
 </form>
