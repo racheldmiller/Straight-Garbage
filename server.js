@@ -31,6 +31,7 @@ var routes = require("./controllers/garbageControllers.js");
 // give the server access to routes
 app.use("/", routes);
 
+
 // ===================================
 //  LISTENERS
 // ===================================
@@ -46,3 +47,4 @@ connection.connect(function(err) {
     console.log("Your app is connected to http://localhost:", PORT);
   });
 });
+

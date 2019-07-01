@@ -10,3 +10,20 @@ PLEASE DO NOT DELETE WHEN STYLING but feel free to move it where needed =) --}}
 <h1>This is the get request:</h1>
 {{!-- passed in variable and handlebars from garbageController.js --}}
 <p>The results near: {{ postalCode }}</p>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+<div id="map"></div>
+
+<p>Alternative disposal methods for: {{ dropdown }}</p>
+
