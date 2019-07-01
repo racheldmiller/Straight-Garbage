@@ -31,6 +31,29 @@ var routes = require("./controllers/garbageControllers.js");
 // give the server access to routes
 app.use("/", routes);
 
+// Randall, I'm not sure if this is accurate, as I noticed you are using app.use as opposed to app.get here are the links to the pages using app.get
+
+// app.get("/", (req, res) => {
+// res.render('index', { title: 'Home' } );
+//});
+
+
+// app.get("/about", (req, res) => {
+// res.render('about', { title: 'About' } );
+//});
+
+// app.get("/contact", (req, res) => {
+// res.render('contact', { title: 'Contact' } );
+//});
+
+// app.get("/about", (req, res) => {
+// res.render('about', { title: 'About' } );
+//})
+
+// app.get("/disposeLocForm", (req, res) => {
+// res.render('disposeLocForm', { title: 'Disposal Location Form' } );
+//});
+
 // ===================================
 //  LISTENERS
 // ===================================

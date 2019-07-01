@@ -1,0 +1,166 @@
+ <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center black-text">Did you know...</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">If you perform aspirational recycling by placing something in your recycling
+          bin that isn’t recyclable, it will cause the whole load to be thrown out. This is recycling contamination, and
+          it’s a big problem.</h5>
+      </div>
+
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Cards Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://pkelliher.imgix.net/chips.jpg?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Snack bags</strong></span>
+            </div>
+            <div class="card-content">
+              <p>Snack Bags Are Recycling Contaminants. The shiny lining in chip bags is often aluminum or a special
+                mixed plastic. Since recycling plants cannot separate the plastic outer layer from the aluminum inner
+                layer, these mixed-material bags cannot be recycled.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="
+              https://pkelliher.imgix.net/pumps.png?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Metal spring</strong></span>
+            </div>
+            <div class="card-content">
+              <p>Just because most of a package appears to be recyclable, that doesn’t necessarily mean that all parts
+                of the packaging are recycled. Metal springs are commonly, but not always, found in pumps and sprayers.
+                Unfortunately, metal is detrimental to the plastic recycling stream. For this reason, look for the
+                How2Recycle label to tell you whether you should discard the closure before recycling.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://pkelliher.imgix.net/plasticCaps.jpg?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Plastic caps</strong></span>
+            </div>
+            <div class="card-content">
+              <p>Most caps CAN be recycled, but not when they’re separated from the bottle. Caps can slip off conveyer
+                belts during the recycling process, so when you empty a bottle, crush it, cap it, and toss it in the
+                recycling bin.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://pkelliher.imgix.net/toothbrush.jpeg?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Tooth brushes</strong></span>
+            </div>
+            <div class="card-content">
+              <p>Toothbrushes are difficult the recycle due to nylon bristles, metal staples that hold the bristles in
+                place, and the plastic handles. These materials need to be separated before they can be processed. There
+                may be different standards for electric toothbrushes.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="
+        https://pkelliher.imgix.net/FrozenFood.jpg?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Frozen food boxes</strong></span>
+            </div>
+            <div class="card-content">
+              <p>Watch Out for Wax Lining. Frozen food boxes look like paper or cardboard but are actually lined with
+                wax or a plastic polymer. This can help preserve and insulate foods, but it makes these packages
+                impossible to recycle.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://pkelliher.imgix.net/plasticBags.jpg?auto=format&fit=crop&h=500&w=700">
+              <span class="card-title"><strong>Plastic bags </strong></span>
+            </div>
+            <div class="card-content">
+              <p>Plastic bags and items made from their plastic material (i.e. shrink wrap, bubble wrap, Ziploc bags,
+                newspaper bags, trash bags, etc.) are the worst recycling contaminator of all. Many local retailers have
+                recycling programs for plastic bags and films.</p>
+            </div>
+            <div class="card-action">
+              <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <div class="col s12 m12">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://pkelliher.imgix.net/Plastics1To7.jpg?auto=format&fit=crop">
+          </div>
+          <div class="card-content">
+            <p>Some recycling program might accept plastics #1-7 but the final rejection is decided at the sorting
+              facility. Rejection of plastics usually comes down to the type of the plastic being recycled and what it
+              once contained.</p>
+          </div>
+          <div class="card-action">
+            <a href="./disposeLocForm.html">Where to dispose in your area.</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <br><br>
+  </div>
