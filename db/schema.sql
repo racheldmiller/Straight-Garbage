@@ -13,3 +13,4 @@ CREATE TABLE materials (
 	PRIMARY KEY (id)
 );
 	
+SELECT * FROM materials; 
