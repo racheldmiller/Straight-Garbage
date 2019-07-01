@@ -5,9 +5,12 @@
 // ===================================
 //  DEPENDENCIES & CONFIGS
 // ===================================
+//for earth911 and google api
+require("dotenv").config();
+var axios = require("axios");
 
+//for server
 var express = require("express");
-
 var router = express.Router();
 
 var garbage = require("../models/garbage.js");
@@ -29,6 +32,7 @@ router.get("/", function(req, res) {
   });
 });
 
+<<<<<<< HEAD
 //***** Landing Page *******//
 router.get("/results", function(req, res) {
   console.log(req.query);
@@ -39,6 +43,50 @@ router.get("/results", function(req, res) {
   //API
 });
 
+=======
+//***** Results Page *******//
+router.get('/results/:postalCode', function (req, res) {
+    console.log(req.query);
+    // {stuff} signals the handlebars engine
+    res.render('results', {
+        title: "Results",
+        style: "style.css",
+        //sends parameter via url
+        //the postal code key is the handlebars variable in whereButton.hbs/result.hbs
+        postalCode: req.params.postalCode
+    })   
+});
+
+router.post('/results/postalCode', function (req, res) {
+    // sends param postal code via POST method within the submit form to render onto the page using req.body
+    var postalCodeParam = req.body.postalCode
+    res.redirect('/results/' + postalCodeParam)
+
+})
+
+
+
+
+//API for google locations
+function getCoord(){
+    axios
+        .get(
+            "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
+            process.env.GOOGLE
+        )
+        .then(function(response) {
+            console.log("************");
+            var lat = response.data.results[0].geometry.location.lat;
+            console.log("This is the lat: ", lat);
+            var long = response.data.results[0].geometry.location.lng;
+            console.log("This is the longitude: ", long);
+            console.log("************");
+
+            res.json(lat, lng)
+        });
+}
+
+>>>>>>> 6f101aa98713655dcfd8a864e83476dbba8c1be5
 // ===================================
 //  EXPORT
 // ===================================
