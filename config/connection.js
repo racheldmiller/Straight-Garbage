@@ -6,20 +6,14 @@ const Sequelize = require("sequelize");
 
 let connection = mysql.createConnection({
   host: "localhost",
-  port: 3306,
+  port: 8080,
   user: "root",
   password: "password",
   database: "recyclethis_db"
 });
 
 // Make the connection
-// connection.connect(function(err) {
-//   if (err) {
-//     console.error("error connecting: " + err.stack);
-//     return;
-//   }
-//   console.log("You're connected as id " + connection.threadId);
-// });
+// let connection = mysql.createConnection({
 
 // Export connection for our ORM to use.
 module.exports = connection;
@@ -30,3 +24,12 @@ const sequelize = new Sequelize("recyclethis_db", "root", "password", {
 });
 
 module.exports = sequelize;
+
+// Make the connection
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error("error connecting: " + err.stack);
+//     return;
+//   }
+//   console.log("You're connected as id " + connection.threadId);
+// });
