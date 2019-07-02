@@ -26,28 +26,57 @@
     //     });
     // });
 
-function getCoord(street, city, state){
+$(document).ready(function () {
+    $('#submit').click(function () {
+        //store full address as variables
+        var street = $('#Address').val();
+        var city = $('#City').val();
+        var state = $('#State').val();
+        
+
+        //converts and concatinates so its readable by google maps get request
+        var googleStreet = street.split(" ").join("+");
+        var googleCity = city.split(" ").join("+");
+        var googleState = state.split(" ").join("+");
+
+        
+        console.log(googleStreet);
+        console.log(googleCity);
+        console.log(googleState);
+
+    });
+});
+
+//grabs coordinates of address using geocode api
+function getCoord(){
+    var fullAddress ="https://maps.googleapis.com/maps/api/geocode/json?address=" 
+    + googleStreet
+    + ",+" 
+    + googleCity
+    + ",+ " 
+    + googleState 
+    + "&key=" 
+    + process.env.GOOGLE;
+    console.log(fullAddress);
     axios
         .get(
-            //
-            // "https://maps.googleapis.com/maps/api/geocode/json?address=" 
-            // + street 
-            // + ",+" 
-            // + city 
-            // + ",+ " 
-            // + state 
-            // + "&key=" 
-            // + process.env.GOOGLE
-            //
-            "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
-            process.env.GOOGLE
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" 
+            + googleStreet
+            + ",+" 
+            + googleCity
+            + ",+ " 
+            + googleState 
+            + "&key=" 
+            + process.env.GOOGLE
+            // "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
+            // process.env.GOOGLE
         )
         .then(function(response) {
             console.log("************");
-            var lat = response.data.results[0].geometry.location.lat;
-            console.log("This is the lat: ", lat);
-            var lng = response.data.results[0].geometry.location.lng;
-            console.log("This is the longitude: ", lng);
+            var googleLat = response.data.results[0].geometry.location.lat;
+            console.log("This is the lat: ", googleLat);
+            var googleLng = response.data.results[0].geometry.location.lng;
+            console.log("This is the longitude: ", googleLng);
             console.log("************");
         })
         // .then(
@@ -58,13 +87,18 @@ function getCoord(street, city, state){
         //     )
 }
 
-     var map;
-      function initMap(lat, lng) {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-              //pass in the variables here for lat lng
-              lat: -34.397, 
-              lng: 150.644},
-          zoom: 8
-        });
-      }
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            //pass in the variables here for lat lng
+            lat: -34.397,
+            lng: 150.644
+        },
+        zoom: 8
+    });
+}
+
+
+
+

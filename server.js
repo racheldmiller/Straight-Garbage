@@ -3,7 +3,7 @@
 // ===================================
 
 var express = require("express");
-var connection = require("./config/connection");
+var connection = require("./config/connection").connection;
 
 var PORT = process.env.PORT || 8080;
 

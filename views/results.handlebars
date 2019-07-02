@@ -1,29 +1,167 @@
 {{> header }}
 
-<p>This is where the results div will go</p>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center black-text">Find your closest disposal location.</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">Please fill out the form below to locate your closest recycling center.</h5>
+    </div>
 
-{{> footer}}
+    <br><br>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Cards Section   -->
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          <div class="card-image">
+            {{!-- MAP --}}
+            <style>
+              /* Always set the map height explicitly to define the size of the div
+              * element that contains the map. */
+              #map {
+                height: 100%;
+              }
+
+              /* Optional: Makes the sample page fill the window. */
+              html,
+              body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+              }
+            </style>
+            <div id="map"></div>
+            {{!-- MAP CLOSE --}}
+
+          </div>
+          <!-- <div class="card-content">
+              <p>Please enter your zip code and click submit to find a recycling center near you or click on the
+                dropdown menu to select a specific material type and find a recycling center near you which will accept
+                it. </p>
+              <div class="input-field col s6"></div>
+              <input id="Zip" type="text" class="validate">
+              <label for="Zip">Enter Zip code</label>
+              </div> -->
+          <div class="card-content">
+            <p>Please enter your street, city / town and state and click submit to find a local recycling center,
+              <i><b>or</b></i> click on the
+              dropdown menu to select a specific material type and find a recycling center near you which will accept
+              it. </p>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="Address" type="text" class="validate">
+                    <label for="Address">Street address</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input id="City" type="text" class="validate">
+                    <label for="City">City / Town</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="State" type="text" class="validate">
+                    <label for="State">State</label>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+          </form>
+        </div>
+
+
+        <div class="card-content">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+          <!-- Dropdown Trigger -->
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Material Type Drop Down</a>
+
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+          </ul>
+          <br><br>
+          <br><br>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+</div>
+<br><br>
+</div>
+
+{{> footer }}
 
 {{!-- //Below is a testing environment for garbageController.js
 PLEASE DO NOT DELETE WHEN STYLING but feel free to move it where needed =) --}}
+<div class="row">
+  <form class="col s10">
+    <div class="row">
+      <div class="input-field col s10">
+        <input id="Address" type="text" class="validate" name="address">
+        <label for="Address">Address</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="City" type="text" class="validate" name="city">
+        <label for="City">City</label>
+      </div>
+      <div class="input-field col s2">
+        <input id="State" type="text" class="validate" name="state">
+        <label for="State">State</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="Zip" type="text" class="validate" name="zip">
+        <label for="Zip">Zip</label>
+      </div>
+    </div>
+  </form>
+  <div class="card-action">
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</div>
+
+
 
 <h1>This is the get request:</h1>
 {{!-- passed in variable and handlebars from garbageController.js --}}
 <p>The results near: {{ postalCode }}</p>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
+<style>
+  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+  #map {
+    height: 100%;
+  }
+
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 <div id="map"></div>
 
 <p>Alternative disposal methods for: {{ dropdown }}</p>
-
