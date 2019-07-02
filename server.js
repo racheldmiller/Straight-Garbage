@@ -31,20 +31,21 @@ var routes = require("./controllers/garbageControllers.js");
 // give the server access to routes
 app.use("/", routes);
 
-
 // ===================================
 //  LISTENERS
 // ===================================
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("You're connected as id " + connection.threadId);
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error("error connecting: " + err.stack);
+//     return;
+//   }
+//   console.log("You're connected as id " + connection.threadId);
 
-  app.listen(PORT, function() {
-    console.log("Your app is connected to http://localhost:", PORT);
-  });
+//   app.listen(PORT, function() {
+//     console.log("Your app is connected to http://localhost:", PORT);
+//   });
+// });
+app.listen(PORT, function() {
+  console.log("Server listening: ", PORT);
 });
-

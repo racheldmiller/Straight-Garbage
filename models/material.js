@@ -42,9 +42,9 @@ Material.init(
 
 module.exports = Material;
 
-Material.findAll().then(result => {
-  console.log(result);
-});
+// Material.findAll().then(result => {
+//   console.log(result);
+// });
 
 // Material.findOne({ where: { id: 96 } }).then(result => {
 //   console.log(result.dataValues);

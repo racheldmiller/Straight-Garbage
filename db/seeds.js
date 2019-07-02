@@ -3,15 +3,17 @@ var axios = require("axios");
 
 // -- sql code to run to fill the table, optional. Best use is if you have dummy data that you want to test.
 
-const connection = require("../config/connection");
-console.log(connection);
+let sequelize = require("sequelize");
+
+var connection2 = require("../config/connection");
+// console.log(connection2);
 
 const Material = require("../models/material");
 
 // connect to mysql
 const mysql = require("mysql");
 
-connection
+connection2
   .authenticate()
   .then(() => {
     console.log("Connection has been established successfully");
@@ -23,7 +25,7 @@ connection
       .then(function(response) {
         const promiseArray = [];
         response.data.result.map(result => {
-          console.log(result);
+          // console.log(result);
           promiseArray.push(
             Material.create({
               type: result.description,
@@ -35,6 +37,7 @@ connection
         });
         sequelize
           .transaction(() => {
+            console.log("sequelize function working");
             return Promise.all(promiseArray);
           })
           .then(() => {

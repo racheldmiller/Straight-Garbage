@@ -15,6 +15,18 @@ let connection = mysql.createConnection({
 // Make the connection
 // let connection = mysql.createConnection({
 
+// Make connection.
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+  // app.listen(PORT, function() {
+  //   console.log("Your app is connected to http://localhost:", PORT);
+  // });
+});
+
 // Export connection for our ORM to use.
 module.exports = connection;
 
