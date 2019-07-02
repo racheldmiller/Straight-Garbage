@@ -8,50 +8,48 @@ var connection = require("./connection");
 
 // Boiler plate that calculates the use of question marks
 function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
+  var arr = [];
+
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
   }
-  
-  // Boiler plate that converts object key/val pairs to sql syntax  
+
+  return arr.toString();
+}
+
+// Boiler plate that converts object key/val pairs to sql syntax
 function objToSql(ob) {
-    var arr = [];
-    for (var key in ob) {
-      var value = ob[key];
+  var arr = [];
+  for (var key in ob) {
+    var value = ob[key];
 
-      if (Object.hasOwnProperty.call(ob, key)) {
-        
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'" + value + "'";
-        }
-
-        arr.push(key + "=" + value);
+    if (Object.hasOwnProperty.call(ob, key)) {
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
       }
+
+      arr.push(key + "=" + value);
     }
-  
-    return arr.toString();
   }
+
+  return arr.toString();
+}
 
 // =========================
 // ORM
 // =========================
 // Object for all our SQL statement functions. (CRU: create, read, update)
-var orm ={
-    selectAll: function() {
-        connection.query("SELECT * FROM materials", function (err, data) {
+const orm = {
+  selectAll: function(callback) {
+    connection.query("SELECT * FROM materials", function(err, data) {
+      if (err) callback(err, null);
+      cb(null, data);
+    });
+  },
 
-
-        })
-    },
-
-    create: function() {
-
-    }
-
+  create: function(insertItem, callback) {
+    const sqlQuery = "INSERT INTO materials(type, description, image), ";
+  }
 };
 
 // Export the orm object for the model (garbage.js).

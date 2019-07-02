@@ -2,14 +2,28 @@
 
 // Set up MySQL connection
 const mysql = require("mysql");
+const Sequelize = require("sequelize");
 
 let connection = mysql.createConnection({
   host: "localhost",
-  port: 3306,
+  port: 8080,
   user: "root",
   password: "password",
-  database: "recycleThis_db"
+  database: "recyclethis_db"
 });
+
+// Make the connection
+// let connection = mysql.createConnection({
+
+// Export connection for our ORM to use.
+module.exports = connection;
+
+const sequelize = new Sequelize("recyclethis_db", "root", "password", {
+  host: "localhost",
+  dialect: "mysql"
+});
+
+module.exports = sequelize;
 
 // Make the connection
 // connection.connect(function(err) {
@@ -19,6 +33,3 @@ let connection = mysql.createConnection({
 //   }
 //   console.log("You're connected as id " + connection.threadId);
 // });
-
-// Export connection for our ORM to use.
-module.exports = connection;

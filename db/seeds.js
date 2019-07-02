@@ -4,10 +4,47 @@ var axios = require("axios");
 // -- sql code to run to fill the table, optional. Best use is if you have dummy data that you want to test.
 
 const connection = require("../config/connection");
+console.log(connection);
+
+const Material = require("../models/material");
 
 // connect to mysql
 const mysql = require("mysql");
 
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully");
+    axios
+      .get(
+        "http://api.earth911.com/earth911.getMaterials?api_key=" +
+          process.env.EARTH911
+      )
+      .then(function(response) {
+        const promiseArray = [];
+        response.data.result.map(result => {
+          console.log(result);
+          promiseArray.push(
+            Material.create({
+              type: result.description,
+              description: result.long_description,
+              image: result.image,
+              materialID: result.material_id
+            })
+          );
+        });
+        sequelize
+          .transaction(() => {
+            return Promise.all(promiseArray);
+          })
+          .then(() => {
+            console.log("we have all the data");
+          });
+      });
+  })
+  .catch(err => {
+    console.error("Unable to connect to the database", err);
+  });
 // connection.connect(function(err) {
 //   if (err) {
 //     console.error("error connecting: " + err.stack);
