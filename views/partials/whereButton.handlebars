@@ -1,5 +1,7 @@
 <form action ="/results/postalCode" method="POST">
     {{!-- name is handlebars param value --}}
+    {{!-- google api requires an address --}}
+    {{!-- three separate fields street city state --}}
     <input type="text" name="postalCode"> 
     <button type="submit">Search near me!</button>
 </form>
