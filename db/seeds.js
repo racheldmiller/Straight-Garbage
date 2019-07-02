@@ -45,7 +45,6 @@ connection
   .catch(err => {
     console.error("Unable to connect to the database", err);
   });
-
 // connection.connect(function(err) {
 //   if (err) {
 //     console.error("error connecting: " + err.stack);
@@ -53,23 +52,22 @@ connection
 //   }
 //   console.log("You're connected as id " + connection.threadId);
 
-// axios
-//   .get(
-//     "http://api.earth911.com/earth911.getMaterials?api_key=" +
-//       process.env.EARTH911
-//   )
-//   .then(function(response) {
-//     console.log(response.data);
-
-//     //   console.log("description :", response.data.result[0].long_description);
-//     //   console.log("image :", response.data.result.image);
-//     //   console.log("materialID :", response.data.result.material_id);
-//   });
+//   axios
+//     .get(
+//       "http://api.earth911.com/earth911.getMaterials?api_key=" +
+//         process.env.EARTH911
+//     )
+//     .then(function(response) {
+//       console.log(response.data.result[0]);
+//       //   console.log("description :", response.data.result[0].long_description);
+//       //   console.log("image :", response.data.result.image);
+//       //   console.log("materialID :", response.data.result.material_id);
+//     });
 
 //   // create a for loop to loop through each of the results
 //   // store the results into the database
-//   // for (i = 0; i < response.length; i++) {
-//   //   var response = response.length;
+//   // for (i = 0; i < response.data.result.length; i++) {
+//   //   var response = response.data.result;
 //   // }
 
 //   // type----description
