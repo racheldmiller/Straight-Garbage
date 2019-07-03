@@ -1,13 +1,77 @@
-// This is where the ajax calls will go for the buttons
+//Google maps documentation
+// var map;
+// function initMap(lat, lng) {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: {
+//         //pass in the variables here for lat lng
+//         lat: -34.397, 
+//         lng: 150.644},
+//     zoom: 8
+//   });
+// }
 
-// $.ajax("/results", {
-//    type : "POST",
-//    data : newPostalCode 
-// }).then (
-//     function () {
-//         res.json({newPostalCode: newPostalCode})
-//     }
-// )
+require('dotenv').config();
+console.log(process.env);
+var axios = require("axios");
+
+//USING JQUERY TO GRAB FORM INPUT FROM  disposeLocForm.handlebars
+
+$("button").on("click", function(event) {
+    event.preventDefault();
+
+    var street = $("#Address").val();
+    var city = $("#City").val();
+    var state= $("#State").val();
+
+    var address = {
+        street: street,
+        city: city,
+        state: state
+    };
+
+    console.log("garbage.js, ln 16 address: ", address);
+
+    //send to server
+    $.post("/disposallocationresults", address, function(response) {
+        console.log("garbage.js, ln 20: ", response)
+    })
+
+    function getCoord(){
+    axios
+    console.log("https://maps.googleapis.com/maps/api/geocode/json?address=" + street + ",+" + city + ",+ " + state + "&key=" + process.env.GOOGLE)
+        .get(
+            // input from user form
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" 
+            + street 
+            + ",+" 
+            + city 
+            + ",+ " 
+            + state 
+            + "&key=" 
+            + process.env.GOOGLE
+            //  Template:            
+            //  "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
+            //   process.env.GOOGLE
+        )
+        .then(function(response) {
+            console.log("************");
+            var lat = response.data.results[0].geometry.location.lat;
+            console.log("This is the lat: ", lat);
+            var lng = response.data.results[0].geometry.location.lng;
+            console.log("This is the longitude: ", lng);
+            console.log("************");
+        })
+        // .then(
+        //     .get()
+        //     //  another api call to google maps
+        //     //  make a new map 
+        //     //  'center' at two coordinates from geocode api call        
+        //     )
+    }
+})
+
+getCoord();
+
 
 // a handle click function that plugs in the whereButton form into the getcoord()
 //once we get back the lat, lng, another .then
@@ -25,80 +89,6 @@
     //       var googleStreet= street.split(" ").join("+");
     //     });
     // });
-
-$(document).ready(function () {
-    $('#submit').click(function () {
-        //store full address as variables
-        var street = $('#Address').val();
-        var city = $('#City').val();
-        var state = $('#State').val();
-        
-
-        //converts and concatinates so its readable by google maps get request
-        var googleStreet = street.split(" ").join("+");
-        var googleCity = city.split(" ").join("+");
-        var googleState = state.split(" ").join("+");
-
-        
-        console.log(googleStreet);
-        console.log(googleCity);
-        console.log(googleState);
-
-    });
-});
-
-//grabs coordinates of address using geocode api
-function getCoord(){
-    var fullAddress ="https://maps.googleapis.com/maps/api/geocode/json?address=" 
-    + googleStreet
-    + ",+" 
-    + googleCity
-    + ",+ " 
-    + googleState 
-    + "&key=" 
-    + process.env.GOOGLE;
-    console.log(fullAddress);
-    axios
-        .get(
-            "https://maps.googleapis.com/maps/api/geocode/json?address=" 
-            + googleStreet
-            + ",+" 
-            + googleCity
-            + ",+ " 
-            + googleState 
-            + "&key=" 
-            + process.env.GOOGLE
-            // "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
-            // process.env.GOOGLE
-        )
-        .then(function(response) {
-            console.log("************");
-            var googleLat = response.data.results[0].geometry.location.lat;
-            console.log("This is the lat: ", googleLat);
-            var googleLng = response.data.results[0].geometry.location.lng;
-            console.log("This is the longitude: ", googleLng);
-            console.log("************");
-        })
-        // .then(
-        //     .get()
-        //     //  another api call to google maps
-        //     //  make a new map 
-        //     //  'center' at two coordinates from geocode api call        
-        //     )
-}
-
-var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            //pass in the variables here for lat lng
-            lat: -34.397,
-            lng: 150.644
-        },
-        zoom: 8
-    });
-}
-
 
 
 

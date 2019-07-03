@@ -38,34 +38,38 @@
                   dropdown menu to select a specific material type and find a recycling center near you which will accept
                   it. </p>
               <div class="row">
-                <form class="col s12">
+                {{!-- Form for get/post requests --}}
+                <form class="col s12" 
+                {{!-- sending the form from /disposallocations to /disposallocationresults --}}
+                action="/disposallocations" method="POST"
+                >
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="Address" type="text" class="validate">
+                      <input id="Address" type="text" class="validate" name="street">
                       <label for="Address">Street address</label>
                     </div>
                   </div>
                   <div class="row">
                   <div class="input-field col s6">
-                    <input id="City" type="text" class="validate">
+                    <input id="City" type="text" class="validate" name="city">
                     <label for="City">City / Town</label>
                   </div>
                   <div class="input-field col s6">
-                    <input id="State" type="text" class="validate">
+                    <input id="State" type="text" class="validate" name="state">
                     <label for="State">State</label>
                   </div>
                 </div>
               </div>
                 
                   </div>
-                </form>
               </div>
-                    
-         
             <div class="card-content">
               <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
               </button>
+            </form>
+              {{!-- end of address input form --}}
+
               <!-- Dropdown Trigger -->
               <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Material Type Drop Down</a>
 

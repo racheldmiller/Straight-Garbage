@@ -1,7 +1,6 @@
-// declares all routes and what logic should run if URL matches (GET, POST, PUT, DELETE), 
+// declares all routes and what logic should run if URL matches (GET, POST, PUT, DELETE),
 //       touches model, figures out what view to render
 // Export routes for server.js to use.
-
 
 // ===================================
 //  DEPENDENCIES & CONFIGS
@@ -15,7 +14,6 @@ var express = require("express");
 var router = express.Router();
 
 var garbage = require("../models/garbage.js");
-// var earth911 = require("../db/seeds.js")
 
 // ===================================
 //  ROUTES
@@ -23,75 +21,66 @@ var garbage = require("../models/garbage.js");
 
 //***** Landing Page *******//
 
-router.get('/', function (req, res) {
-    //res.JSON like console.log to display a message to the screen that the page works
-    // res.json("Route for / works")
-    // console.log('Helloooooo')
-    res.render('index', {
-        title: "Landing",
-        style: "style.css",
-        typesOfGarabage: [],
-    })
-})
+router.get("/", function(req, res) {
+  //res.JSON like console.log to display a message to the screen that the page works
+  // res.json("Route for / works")
+  // console.log('Helloooooo')
+  res.render("index", {
+    title: "Home Page",
+    style: "style.css",
+  });
+  
+});
+
+//***** About Page *******//
+router.get('/about', function(req, res) {
+  res.render('about', {
+    title: "About",
+    style: "style.css" 
+  })
+});
+
+//***** Contact Page *******//
+router.get('/contact', function(req, res) {
+  res.render('contact', {
+    title: "Contact Us",
+    style: "style.css" 
+  })
+});
 
 //***** Results Page *******//
-    // for postal code
-router.get('/results/:postalCode', function (req, res) {
-    console.log(req.query);
-    // {stuff} signals the handlebars engine
-    res.render('results', {
-        title: "Disposal Locations",
-        style: "style.css",
-        //sends parameter via url
-        //the postal code key is the handlebars variable in whereButton.hbs/result.hbs
-        postalCode: req.params.postalCode
-    })   
+router.get("/disposallocations", function(req, res) {
+  // {stuff} signals the handlebars engine
+  res.render("disposeLocForm", {
+    title: "Disposal Locations Form",
+    style: "style.css",
+  });
 });
 
-router.post('/results/postalCode', function (req, res) {
-    // sends param postal code via POST method within the submit form to render onto the page using req.body
-    var postalCodeParam = req.body.postalCode
-    res.redirect('/results/' + postalCodeParam)
-});
-
-    // for alternative disposal method
-router.get('/results/:dropdown', function(req, res) {
-    res.render('results', {
-        title: "Alternative Location Results By Material Type",
-        style: "style.css",
-        dropdown: req.params.dropdownOption
-    })
-});
-
-router.post('/results/dropdown', function(req, res) {
-    var dropdownSelection = req.body.dropdownOption
-    res.redirect('/results/' + dropdownSelection)
+// Input received from form in disposeLocForm.hbs
+router.post('/disposallocations', function (req, res) {
+  var addressInput = req.body;
+  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
+  res.redirect('/disposallocationresults')
 })
 
+router.get('/disposallocationresults', function (req, res) {
+  res.render('disposedLocationResults', {
+    title: 'Results',
+    style: 'style.css'
+  })
+})
 
+//***** Test Page *******//
+router.get("/sgtestmode", function (req, res) {
+  res.render("test_results")
+})
 
-
-
-
-// //API for google locations
-// function getCoord(){
-//     axios
-//         .get(
-//             "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=" +
-//             process.env.GOOGLE
-//         )
-//         .then(function(response) {
-//             console.log("************");
-//             var lat = response.data.results[0].geometry.location.lat;
-//             console.log("This is the lat: ", lat);
-//             var long = response.data.results[0].geometry.location.lng;
-//             console.log("This is the longitude: ", long);
-//             console.log("************");
-
-//             res.json(lat, lng)
-//         });
-// }
-
+router.post('/sgtestmode', function (req, res) {
+  var addressInput = req.body;
+  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
+  res.redirect('/sgtestmode')
+})
 
 // ===================================
 //  EXPORT
