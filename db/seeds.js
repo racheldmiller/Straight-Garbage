@@ -12,6 +12,7 @@ const Material = require("../models/material");
 
 // connect to mysql
 const mysql = require("mysql");
+console.log("testing");
 
 connection2
   .authenticate()
@@ -23,7 +24,7 @@ connection2
           process.env.EARTH911
       )
       .then(function(response) {
-        const promiseArray = [];
+        let promiseArray = [];
         response.data.result.map(result => {
           // console.log(result);
           promiseArray.push(
@@ -35,19 +36,20 @@ connection2
             })
           );
         });
-        sequelize
-          .transaction(() => {
-            console.log("sequelize function working");
-            return Promise.all(promiseArray);
-          })
-          .then(() => {
-            console.log("we have all the data");
-          });
+        // sequelize
+        //   .transaction(() => {
+        //     console.log("sequelize function working");
+        //     return Promise.all(promiseArray);
+        //   })
+        // .then(() => {
+        //   console.log("we have all the data");
+        // });
       });
   })
   .catch(err => {
     console.error("Unable to connect to the database", err);
   });
+
 // connection.connect(function(err) {
 //   if (err) {
 //     console.error("error connecting: " + err.stack);
