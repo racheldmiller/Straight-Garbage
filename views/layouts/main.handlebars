@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title> {{ title }}</title>
@@ -10,6 +11,16 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+	<meta charset="UTF-8">
+	{{!-- Be sure to add a key to each router.get() method to reflect the value of the page **1 --}}
+	<link rel="stylesheet" href="/assets/css/{{style}}" type="text/css" />
+	<title>  title  </title>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/assets/js/garbage.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu1DCEzzMt3HyoNm90Myqn6cjWdevfOdc&callback=initMap"
+    async defer></script>
+
 </head>
 
 <body>
@@ -19,38 +30,6 @@
 <!--Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
-  <script src="../Straight-Garbage2/js/init.js"></script>
+  <script src="js/init.js"></script>
 
 </html>
-
-
-{{!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	{{!-- Be sure to add a key to each router.get() method to reflect the value of the page **1 --}}
-	<link rel="stylesheet" href="/assets/css/{{style}}" type="text/css" />
-	<title>  title  </title>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/assets/js/garbage.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu1DCEzzMt3HyoNm90Myqn6cjWdevfOdc&callback=initMap"
-    async defer></script>
-</head>
-
-<body>
-	{{!-- !-- this is what will be rendered on the page --! --}}
-	 body
-</body>
-
-</html> --
-
-
-{{!-- example **1 --}}
-{{!-- These key values pairs will be passed into the title and style mustaches --}}
-        {{!-- router.get('/' function(req, res) {
-            render.json('handlebarsFileName', {
-                title: 'Other Page',
-                style: 'other.css'
-            })
-        }); --}}
