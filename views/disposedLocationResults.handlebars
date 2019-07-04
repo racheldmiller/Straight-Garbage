@@ -1,51 +1,104 @@
-  {{> header }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title> {{ title }}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+<!--Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/assets/js/materialize.js"></script>
+  <script src="/assets/js/init.js"></script>
+  <script src="/public/assets/js/garbage.js"></script>
   
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center black-text">Here are the closest recycling centers near you</h1>
-      
-      <br><br>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+    #map {
+      height: 100%;
+    }
 
-    </div>
-  </div>
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
 
+<body>
+{{>header}}
 
+<div class="section no-pad-bot" id="index-banner">
   <div class="container">
-    <div class="section">
+    <br><br>
+    <h1 class="header center black-text">Here are the closest recycling centers near you</h1>
 
-      <!--   Cards Section   -->
-      <div class="row">
-        <div class="col s12 m12">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://pkelliher.imgix.net/mapPlaceHolder.png?auto=format&fit=crop&h=500&w=700">
+    <br><br>
 
-            </div>
-            
-            <div class="card-content">
-                <p>This is where the results will go.</p>
-                <a href="./disposeLocForm.html">Search again</a>
-            </div>
-              </div>
-                
-                  </div>
-                
-              </div>
-              
-                    
-         
-         
-            </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Cards Section   -->
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          {{!-- <div class="card-image"> --}}
+
+            <h3>My Google Maps Demo</h3>
+            <!--The div element for the map -->
+            <div id="map"></div>
+
+          {{!-- </div> --}}
+
+          <div class="card-content">
+            <p>This is where the results will go.</p>
+            <a href="./disposallocations">Search again</a>
           </div>
         </div>
 
-
       </div>
+
     </div>
 
   </div>
-  <br><br>
-  </div>
+</div>
+</div>
 
-  {{> footer }}
+
+</div>
+</div>
+
+</div>
+<br><br>
+</div>
+
+{{> footer }}
+
+</body>
+</html>
+
+<script>
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+        //pass in the variables here for lat lng
+        lat: -34.397, 
+        lng: 150.644},
+    zoom: 8
+  });
+}
+</script>

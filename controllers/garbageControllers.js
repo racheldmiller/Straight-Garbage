@@ -26,30 +26,61 @@ router.get("/", function(req, res) {
   // res.json("Route for / works")
   // console.log('Helloooooo')
   res.render("index", {
-    title: "Landing",
+    title: "Home Page",
     style: "style.css",
-    typesOfGarabage: []
   });
+  
+});
+
+//***** About Page *******//
+router.get('/about', function(req, res) {
+  res.render('about', {
+    title: "About",
+    style: "style.css" 
+  })
+});
+
+//***** Contact Page *******//
+router.get('/contact', function(req, res) {
+  res.render('contact', {
+    title: "Contact Us",
+    style: "style.css" 
+  })
 });
 
 //***** Results Page *******//
-router.get("/results/:postalCode", function(req, res) {
-  console.log(req.query);
+router.get("/disposallocations", function(req, res) {
   // {stuff} signals the handlebars engine
   res.render("disposeLocForm", {
-    title: "Results",
+    title: "Disposal Locations Form",
     style: "style.css",
-    //sends parameter via url
-    //the postal code key is the handlebars variable in whereButton.hbs/result.hbs
-    postalCode: req.params.postalCode
   });
 });
 
-router.post("/results/postalCode", function(req, res) {
-  // sends param postal code via POST method within the submit form to render onto the page using req.body
-  var postalCodeParam = req.body.postalCode;
-  res.redirect("/results/" + postalCodeParam);
-});
+// Input received from form in disposeLocForm.hbs
+router.post('/disposallocations', function (req, res) {
+  var addressInput = req.body;
+  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
+  res.redirect('/disposallocationresults')
+})
+
+router.get('/disposallocationresults', function (req, res) {
+  res.render('disposedLocationResults', {
+    title: 'Results',
+    style: 'style.css'
+  })
+})
+
+//***** Test Page *******//
+router.get("/sgtestmode", function (req, res) {
+  res.render("test_results")
+})
+
+router.post('/sgtestmode', function (req, res) {
+  var addressInput = req.body;
+  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
+  res.redirect('/sgtestmode')
+})
 
 // ===================================
 //  EXPORT
