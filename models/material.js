@@ -8,11 +8,11 @@ class Material extends Model {}
 Material.init(
   {
     // attributes
-    // id: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    //   primaryKey: true
-    // },
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      primaryKey: true
+    },
     type: {
       type: Sequelize.STRING,
       default: null,

@@ -20,8 +20,7 @@ connection2
     console.log("Connection has been established successfully");
     axios
       .get(
-        "http://api.earth911.com/earth911.getMaterials?api_key=" +
-          process.env.EARTH911
+        "http://api.earth911.com/earth911.getMaterials?api_key=6ee9222b20473f36"
       )
       .then(function(response) {
         let promiseArray = [];

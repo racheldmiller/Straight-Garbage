@@ -37,10 +37,10 @@ const sequelize = new Sequelize("recyclethis_db", "root", "password", {
 
 module.exports = sequelize;
 
-module.exports = {
-  connection: connection,
-  sequelize: sequelize
-};
+// module.exports = {
+//   connection: connection,
+//   sequelize: sequelize
+// };
 
 // Make the connection
 // connection.connect(function(err) {
