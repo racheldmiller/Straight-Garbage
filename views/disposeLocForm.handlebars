@@ -60,7 +60,16 @@
                   </div>
                 </div>
               </div>
-                
+                              <!-- Dropdown Trigger -->
+              <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select A Material From the Dropdown List</a>
+
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                {{#each materials}}
+                  <li>{{this}}</li>
+                {{/each}}
+              </ul>
+              
                   </div>
               </div>
             <div class="card-content">
@@ -70,14 +79,6 @@
             </form>
               {{!-- end of address input form --}}
 
-              <!-- Dropdown Trigger -->
-              <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Material Type Drop Down</a>
-
-              <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-              </ul>
               <br><br>
               <br><br>
             </div>
