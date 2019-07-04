@@ -39,4 +39,5 @@ connection.connect(function(err) {
 
 var latitude = 33.67;
 var longitude = -112.84;
+
 var max_distance = 25;

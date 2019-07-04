@@ -54,6 +54,14 @@ router.get("/disposallocations", function(req, res) {
   res.render("disposeLocForm", {
     title: "Disposal Locations Form",
     style: "style.css",
+    materials: [
+      "Chip Bags id106",
+      "Metal Springs From Pumps id282",
+      "Plastic Caps id10 and 27",
+      "Toothbrushes 338",
+      "Waxed Cardboard 358",
+      "Plastic Bags 2 8 16 20 25 33 42"
+    ]
   });
 });
 
