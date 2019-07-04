@@ -27,18 +27,17 @@ connection.connect(function(err) {
         "&api_key=6ee9222b20473f36"
     )
     .then(function(response) {
-      console.log(response.data.result);
+      console.log(response.data);
       var description = [];
       var distance = [];
       var location_id = [];
-      var i;
-      var data = response.data.result;
-      // for (i < 0; i < data.length; i++) {
-      //   console.log(data[i].description)
-      // }
+      for (i < 0; i < response.length; i++) {
+        console.log(response.data[i]);
+      }
     });
 });
 
 var latitude = 33.67;
 var longitude = -112.84;
+
 var max_distance = 25;
