@@ -1,5 +1,6 @@
 // jQuery ready func
 $(document).ready(function () {
+    
     // //Google maps documentation
     var map;
     function initMap(lat, lng) {
@@ -120,6 +121,11 @@ $(document).ready(function () {
                 }
             })
         )
+
+        // $.ajax("/disposallocations", {
+        //     type: "POST",
+        //     locations: 
+        // })
     })
 });
 

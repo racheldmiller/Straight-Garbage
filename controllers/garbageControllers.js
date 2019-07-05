@@ -13,6 +13,11 @@ var axios = require("axios");
 var express = require("express");
 var router = express.Router();
 
+//for sequelize data
+var connection = require("../config/connection");
+// var Material = require("../models/material");
+// console.log("Material model ", Material);
+
 var garbage = require("../models/garbage.js");
 
 // ------ RACHEL --------------
@@ -81,6 +86,7 @@ router.get("/search", function(req, res) {
 //***** Perform the Search *******//
 router.get("/search", (req, res) => {
   const { term } = req.query;
+  console.log("Term, gc.js, ln 89: ", req.query)
 
   Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
     .then(material => res.render("material", { material }))
@@ -95,6 +101,17 @@ router.get("/theresult", function(req, res) {
   });
 });
 // ---------------------------- RACHEL NEW ---------------------------------
+// router.get("/disposallocations", function(req, res) {
+//   // {stuff} signals the handlebars engine
+//   connection.query("SELECT * FROM materials WHERE id=?", [req.params.id], function(err, data) {
+//     var sqlMaterials = data
+//   res.render("disposeLocForm", {
+//     title: "Disposal Locations Form",
+//     style: "style.css",
+//     materials: sqlMaterials
+//   });
+// });
+// });
 
 // Input received from form in disposeLocForm.hbs
 router.post("/disposallocations", function(req, res) {
