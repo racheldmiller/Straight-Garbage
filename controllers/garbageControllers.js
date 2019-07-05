@@ -15,6 +15,11 @@ var router = express.Router();
 
 var garbage = require("../models/garbage.js");
 
+// ------ RACHEL --------------
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
+// ------ RACHEL --------------
+
 // ===================================
 //  ROUTES
 // ===================================
@@ -27,25 +32,24 @@ router.get("/", function(req, res) {
   // console.log('Helloooooo')
   res.render("index", {
     title: "Home Page",
-    style: "style.css",
+    style: "style.css"
   });
-  
 });
 
 //***** About Page *******//
-router.get('/about', function(req, res) {
-  res.render('about', {
+router.get("/about", function(req, res) {
+  res.render("about", {
     title: "About",
-    style: "style.css" 
-  })
+    style: "style.css"
+  });
 });
 
 //***** Contact Page *******//
-router.get('/contact', function(req, res) {
-  res.render('contact', {
+router.get("/contact", function(req, res) {
+  res.render("contact", {
     title: "Contact Us",
-    style: "style.css" 
-  })
+    style: "style.css"
+  });
 });
 
 //***** Results Page *******//
@@ -65,30 +69,63 @@ router.get("/disposallocations", function(req, res) {
   });
 });
 
-// Input received from form in disposeLocForm.hbs
-router.post('/disposallocations', function (req, res) {
-  var addressInput = req.body;
-  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
-  res.redirect('/disposallocationresults')
-})
+// ---------------------------- RACHEL NEW ---------------------------------
+//***** Search Bar *******//
+router.get("/search", function(req, res) {
+  res.render("search", {
+    title: "Search Items",
+    style: "style.css"
+  });
+});
 
-router.get('/disposallocationresults', function (req, res) {
-  res.render('disposedLocationResults', {
-    title: 'Results',
-    style: 'style.css'
-  })
-})
+//***** Perform the Search *******//
+router.get("/search", (req, res) => {
+  const { term } = req.query;
+
+  Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
+    .then(material => res.render("material", { material }))
+    .catch(err => console.log(err));
+});
+
+//***** Get Results from Database *******//
+router.get("/theresult", function(req, res) {
+  res.render("theresult", {
+    title: "Results",
+    style: "style.css"
+  });
+});
+// ---------------------------- RACHEL NEW ---------------------------------
+
+// Input received from form in disposeLocForm.hbs
+router.post("/disposallocations", function(req, res) {
+  var addressInput = req.body;
+  console.log(
+    "garbageController.js, ln 63: Address input from user: ",
+    req.body
+  );
+  res.redirect("/disposallocationresults");
+});
+
+router.get("/disposallocationresults", function(req, res) {
+  res.render("disposedLocationResults", {
+    title: "Results",
+    style: "style.css"
+  });
+});
 
 //***** Test Page *******//
-router.get("/sgtestmode", function (req, res) {
-  res.render("test_results")
-})
+router.get("/sgtestmode", function(req, res) {
+  res.render("test_results");
+});
 
-router.post('/sgtestmode', function (req, res) {
+router.post("/sgtestmode", function(req, res) {
   var addressInput = req.body;
-  console.log("garbageController.js, ln 63: Address input from user: ", req.body);
-  res.redirect('/sgtestmode')
-})
+  console.log(
+    "garbageController.js, ln 63: Address input from user: ",
+    req.body
+  );
+  res.redirect("/sgtestmode");
+});
 
 // ===================================
 //  EXPORT
