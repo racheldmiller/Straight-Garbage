@@ -39,16 +39,43 @@ function objToSql(ob) {
 // ORM
 // =========================
 // Object for all our SQL statement functions. (CRU: create, read, update)
-const orm = {
-  selectAll: function(callback) {
-    connection.query("SELECT * FROM materials", function(err, data) {
-      if (err) callback(err, null);
-      cb(null, data);
+var orm = {
+  selectAll: function(materials, callback) {
+    var queryString = "SELECT * FROM " + materials + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
     });
   },
 
-  create: function(insertItem, callback) {
-    const sqlQuery = "INSERT INTO materials(type, description, image), ";
+  create: function(table, cols, vals, callback) {
+    var queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+    console.log(queryString);
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
+
+  find: function(tableInput, id, cb) {
+    var queryString = "SELECT * FROM " + tableInput;
+
+    queryString += "WHERE";
+    queryString += "?";
+    console.log(queryString);
   }
 };
 

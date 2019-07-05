@@ -16,6 +16,8 @@ var router = express.Router();
 var garbage = require("../models/garbage.js");
 
 // ------ RACHEL --------------
+var items = require("../models/material.js");
+
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 // ------ RACHEL --------------
@@ -83,7 +85,7 @@ router.get("/search", (req, res) => {
   const { term } = req.query;
 
   Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
-    .then(material => res.render("material", { material }))
+    .then(items => res.render("items", { items }))
     .catch(err => console.log(err));
 });
 
