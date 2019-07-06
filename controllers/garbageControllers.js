@@ -86,7 +86,7 @@ router.get("/theresult", function(req, res) {
   // var Material = require("../models/materials");
 
   Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
-    .then(items =>
+    .then(Material =>
       res.render("theresult", {
         title: "Results",
         style: "style.css",
@@ -103,7 +103,7 @@ router.post("/theresult"),
     // var Material = require("../models/materials");
 
     Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
-      .then(items =>
+      .then(Material =>
         res.render("theresult", {
           title: "Results",
           style: "style.css",
