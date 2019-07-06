@@ -16,7 +16,7 @@ var router = express.Router();
 var garbage = require("../models/garbage.js");
 
 // ------ RACHEL --------------
-var items = require("../models/material.js");
+var Material = require("../models/material.js");
 
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
@@ -72,7 +72,7 @@ router.get("/disposallocations", function(req, res) {
 });
 
 // ---------------------------- RACHEL NEW ---------------------------------
-//***** Search Bar *******//
+//***** Get Results from Database *******//
 router.get("/search", function(req, res) {
   res.render("search", {
     title: "Search Items",
@@ -80,22 +80,38 @@ router.get("/search", function(req, res) {
   });
 });
 
-//***** Perform the Search *******//
-router.get("/search", (req, res) => {
+router.get("/theresult", function(req, res) {
   const { term } = req.query;
 
+  // var Material = require("../models/materials");
+
   Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
-    .then(items => res.render("items", { items }))
+    .then(items =>
+      res.render("theresult", {
+        title: "Results",
+        style: "style.css",
+        Material
+      })
+    )
     .catch(err => console.log(err));
 });
 
-//***** Get Results from Database *******//
-router.get("/theresult", function(req, res) {
-  res.render("theresult", {
-    title: "Results",
-    style: "style.css"
-  });
-});
+router.post("/theresult"),
+  function(req, res) {
+    const { term } = req.query;
+
+    // var Material = require("../models/materials");
+
+    Material.findAll({ where: { type: { [Op.like]: "%" + term + "%" } } })
+      .then(items =>
+        res.render("theresult", {
+          title: "Results",
+          style: "style.css",
+          Material
+        })
+      )
+      .catch(err => console.log(err));
+  };
 // ---------------------------- RACHEL NEW ---------------------------------
 
 // Input received from form in disposeLocForm.hbs
